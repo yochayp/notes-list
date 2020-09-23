@@ -7,10 +7,11 @@
 
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js -p $PORT",
+    "start": "node server.js -p $PORT",
     "heroku-postbuild": "next build"
 
    
+    
   },
   "keywords": [],
   "author": "",
