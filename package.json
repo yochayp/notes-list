@@ -5,12 +5,10 @@
   "main": "index.js",
   "scripts": {
 
-    
-    "dev": "node server.js",
+    "dev": "node server.js -p $PORT",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js -p $PORT",
-    "heroku-postbuild": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=production node server.js -p $PORT"
+   
   },
   "keywords": [],
   "author": "",
