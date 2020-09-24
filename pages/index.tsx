@@ -19,7 +19,7 @@ const Index = (props) => {
         const value = useLocalStore(
             source => ({
 
-                noteslist: props.notes
+                noteslist: []//props.notes
                 ,
                 addNote(note) {
                     ServerRequests.addNote(note);
@@ -65,7 +65,6 @@ const Index = (props) => {
                 <ListView />
             </StoreProvider>
         </>
-        <div>hello world!</div>
     )
 }
 
