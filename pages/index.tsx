@@ -79,7 +79,7 @@ const Index = (props) => {
 }*/
 
 export async function getStaticProps() {
-  const posts =[];// await axios('/notes');
+  const posts = await fetch('/notes');
 
   return {
     props: {
