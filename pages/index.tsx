@@ -70,13 +70,14 @@ const Index = (props) => {
 }
 
 Index.getInitialProps = async () => {
-    const res = await axios('http://localhost:3000/notes');
+    const res = await axios('/notes');
     res.data.forEach(element => {
         delete element._id;
         delete element.__v;
     });
     return { notes: res.data }
 }
+
 
 export default Index;
 
