@@ -78,7 +78,7 @@ const Index = (props) => {
     return { notes: res.data }
 }*/
 
-export async function getStaticProps() {
+/*export async function getStaticProps() {
   const posts = await axios('/notes');
 
   return {
@@ -86,7 +86,7 @@ export async function getStaticProps() {
       posts,
     },
   };
-}
+}*/
 
 export default Index;
 
