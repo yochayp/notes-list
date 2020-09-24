@@ -14,7 +14,7 @@ export const storeContext = React.createContext<TStore | null>(null)
 
 
 const Index = (props) => {
-    const StoreProvider = ({ children }) => {
+   /* const StoreProvider = ({ children }) => {
 
         const value = useLocalStore(
             source => ({
@@ -49,9 +49,9 @@ const Index = (props) => {
             }), props,
         )
         return <storeContext.Provider value={value}>{children}</storeContext.Provider>;
-    };
+    };*/
     return (
-        <>
+        /*<>
             <Head>
                 <link
                     rel="stylesheet"
@@ -64,7 +64,8 @@ const Index = (props) => {
                 <NavbarView />
                 <ListView />
             </StoreProvider>
-        </>
+        </>*/
+        <div>hello world!</div>
     )
 }
 
