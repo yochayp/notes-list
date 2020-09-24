@@ -79,11 +79,15 @@ const Index = (props) => {
 }*/
 
 export async function getStaticProps() {
-  const posts = await fetch('/notes');
-
+  const res = await fetch('/notes');
+ /* res.data.forEach(element => {
+    delete element._id;
+    delete element.__v;
+});
+*/
   return {
     props: {
-      posts,
+      res,
     },
   };
 }
