@@ -14,8 +14,9 @@ app.prepare()
         const server = express()
         server.post(
             '/notes', (req, res) => {
-            console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
-          })
+                res.send(201);
+                next();
+              } )
       
 console.log('server started')
         server.listen(port, (err) => {
