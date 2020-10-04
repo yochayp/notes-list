@@ -5,6 +5,7 @@ import { TStore } from '../stores/notesStore'
 import ServerRequests from '../utils/serverRequests'
 import Note from '../models/Note'
 import axios from 'axios';
+import dbConnect from '../utils/dbConnect'
 
 import NavbarView from '../components/navbarview'
 import ListView from '../components/listview'
@@ -68,6 +69,8 @@ const Index = ({ notes }) => {
 
 export async function getServerSideProps() {
     let notes;
+    await dbConnect()
+
    // const result = await axios.get('http://localhost:3000/notes');//serverRequests.initNotes(); 
   const result = await Note.find({})
    notes = JSON.parse(JSON.stringify(result))
