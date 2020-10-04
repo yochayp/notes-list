@@ -17,7 +17,7 @@ app.prepare()
 console.log('server started')
         server.listen(port, (err) => {
             if (err) throw err
-            console.log('> Ready on http://localhost:3000')
+            console.log('> Ready on ${port}')
             mongoose.connect(
                 config.MONGODB_URI,
                 { useUnifiedTopology: true, useNewUrlParser: true }
