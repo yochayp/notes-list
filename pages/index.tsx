@@ -75,7 +75,7 @@ export async function getServerSideProps() {
   const result = await Note.find({})
    notes = JSON.parse(JSON.stringify(result))
     console.log(notes)
-    return { props: { notes: [] } }
+    return { props: { notes: notes } }
 }
 export default Index;
 
