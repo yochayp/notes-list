@@ -9,10 +9,12 @@ module.exports = server => {
   // Get Notes
   server.get('/notes', jsonParser, async (req, res, next) => {
     try {
+      console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
       const notes = await Note.find({});
       res.send(notes);
       next();
     } catch (err) {
+      throw err
     }
   });
 

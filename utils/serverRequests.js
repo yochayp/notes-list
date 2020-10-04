@@ -24,6 +24,7 @@ class ServerRequests {
 
     deleteNote(noteid) {
         return new Promise(async (resolve, reject) => {
+            console.log('delete')
             try {
                 const response = await axios('/notes', {
                     method: 'DELETE',
@@ -62,7 +63,7 @@ class ServerRequests {
 
         return new Promise(async (resolve, reject) => {
             try {
-                const response = await axios.get('/notes');
+                const response = await axios.get('http://localhost:3000/notes');
                 resolve(response.data);
             } catch (error) {
                 reject(error);

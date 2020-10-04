@@ -1,33 +1,32 @@
 import Head from 'next/head'
 import React from "react";
-import axios from 'axios';
 import { useLocalStore } from 'mobx-react' // 6.x or mobx-react-lite@1.4.0
 import { TStore } from '../stores/notesStore'
 import ServerRequests from '../utils/serverRequests'
+//import Note from '../models/Note'
+import axios from 'axios';
 
 import NavbarView from '../components/navbarview'
 import ListView from '../components/listview'
 import { toJS } from 'mobx';
+import serverRequests from '../utils/serverRequests';
 
 
 export const storeContext = React.createContext<TStore | null>(null)
 
 
-const Index = (props) => {
-   /* const StoreProvider = ({ children }) => {
+const Index = ({ notes }) => {
 
+    const StoreProvider = ({ children }) => {
         const value = useLocalStore(
             source => ({
-
-                noteslist: props.notes
+                noteslist: notes
                 ,
                 addNote(note) {
                     ServerRequests.addNote(note);
                     this.noteslist.push(note);
                 },
-
                 toggleItem(lastnote, lastitem) {
-
                     this.noteslist.forEach((item, noteIndex) => {
                         if (item.id == lastnote) {
                             this.noteslist[noteIndex].itemsList.forEach((item, itemIndex) => {
@@ -39,19 +38,17 @@ const Index = (props) => {
                             })
                         }
                     })
-
                 },
                 removeNote(selectedNote) {
                     this.noteslist = this.noteslist.filter(note => note.id !== selectedNote.id);
                     ServerRequests.deleteNote(selectedNote.id);
-
                 }
-            }), props,
+            }), { notes }
         )
         return <storeContext.Provider value={value}>{children}</storeContext.Provider>;
-    };*/
+    };
     return (
-        /*<>
+        <>
             <Head>
                 <link
                     rel="stylesheet"
@@ -64,33 +61,17 @@ const Index = (props) => {
                 <NavbarView />
                 <ListView />
             </StoreProvider>
-        </>*/
-        <div>hello world!</div>
+        </>
     )
 }
 
-/*Index.getInitialProps = async () => {
-    const res = await axios('/notes');
-    res.data.forEach(element => {
-        delete element._id;
-        delete element.__v;
-    });
-    return { notes: res.data }
-}*/
 
-export async function getStaticProps() {
-  const res =[]// await fetch('/notes');
- /* res.data.forEach(element => {
-    delete element._id;
-    delete element.__v;
-});
-*/
-  return {
-    props: {
-      res,
-    },
-  };
+export async function getServerSideProps() {
+    let notes;
+    const result = await axios.get('http://localhost:3000/notes');//serverRequests.initNotes(); //await Note.find({})
+   notes = JSON.parse(JSON.stringify(result.data))
+    console.log(notes)
+    return { props: { notes: notes } }
 }
-
 export default Index;
 

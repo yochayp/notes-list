@@ -4,6 +4,7 @@ import { AiOutlineDelete, AiOutlineEdit, AiOutlineEye } from "react-icons/ai";
 
 import serverRequests from '../utils/serverRequests'
 import useStore from "../stores/useStore";
+import Note from '../models/Note'
 
 const ListView = (props) => {
     
