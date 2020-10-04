@@ -3,7 +3,7 @@ import React from "react";
 import { useLocalStore } from 'mobx-react' // 6.x or mobx-react-lite@1.4.0
 import { TStore } from '../stores/notesStore'
 import ServerRequests from '../utils/serverRequests'
-//import Note from '../models/Note'
+import Note from '../models/Note'
 import axios from 'axios';
 
 import NavbarView from '../components/navbarview'
@@ -68,7 +68,8 @@ const Index = ({ notes }) => {
 
 export async function getServerSideProps() {
     let notes;
-   // const result = await axios.get('http://localhost:3000/notes');//serverRequests.initNotes(); //await Note.find({})
+   // const result = await axios.get('http://localhost:3000/notes');//serverRequests.initNotes(); 
+   const result = await Note.find({})
   // notes = JSON.parse(JSON.stringify(result.data))
     console.log(notes)
     return { props: { notes: [] } }
