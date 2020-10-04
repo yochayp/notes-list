@@ -48,7 +48,7 @@ const Index = ({ notes }) => {
         return <storeContext.Provider value={value}>{children}</storeContext.Provider>;
     };
     return (
-        <>
+       /* <>
             <Head>
                 <link
                     rel="stylesheet"
@@ -61,7 +61,8 @@ const Index = ({ notes }) => {
                 <NavbarView />
                 <ListView />
             </StoreProvider>
-        </>
+        </>*/
+        <div>hello world!</div>
     )
 }
 
