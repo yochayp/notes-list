@@ -12,7 +12,9 @@ const port = parseInt(process.env.PORT, 10) || 3000
 app.prepare()
     .then(() => {
         const server = express()
-
+        server.get('/notes', (req, res) => {
+            console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+          })
       
 console.log('server started')
         server.listen(port, (err) => {
