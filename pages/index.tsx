@@ -69,8 +69,8 @@ const Index = ({ notes }) => {
 export async function getServerSideProps() {
     let notes;
    // const result = await axios.get('http://localhost:3000/notes');//serverRequests.initNotes(); 
- //  const result = await Note.find({})
-  // notes = JSON.parse(JSON.stringify(result.data))
+  const result = await Note.find({})
+   notes = JSON.parse(JSON.stringify(result))
     console.log(notes)
     return { props: { notes: [] } }
 }
