@@ -8,7 +8,6 @@ import axios from 'axios';
 
 import NavbarView from '../components/navbarview'
 import ListView from '../components/listview'
-import { toJS } from 'mobx';
 import serverRequests from '../utils/serverRequests';
 
 
