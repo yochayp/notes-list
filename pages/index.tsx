@@ -8,6 +8,7 @@ import axios from 'axios';
 
 import NavbarView from '../components/navbarview'
 import ListView from '../components/listview'
+import { toJS } from 'mobx';
 import serverRequests from '../utils/serverRequests';
 
 
@@ -67,10 +68,10 @@ const Index = ({ notes }) => {
 
 export async function getServerSideProps() {
     let notes;
-   // const result = await axios.get('http://localhost:3000/notes');//serverRequests.initNotes(); //await Note.find({})
-  // notes = JSON.parse(JSON.stringify(result.data))
+    const result = await axios.get('http://localhost:3000/notes');//serverRequests.initNotes(); //await Note.find({})
+   notes = JSON.parse(JSON.stringify(result.data))
     console.log(notes)
-    return { props: { notes: [] } }
+    return { props: { notes: notes } }
 }
 export default Index;
 
