@@ -69,7 +69,6 @@ const Index = ({ notes }) => {
 
 export async function getServerSideProps() {
     let notes;
-    await dbConnect()
 
    // const result = await axios.get('http://localhost:3000/notes');//serverRequests.initNotes(); 
   const result = await Note.find({})
