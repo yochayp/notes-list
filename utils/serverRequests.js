@@ -6,14 +6,16 @@ class ServerRequests {
     addNote(newnote) {
         return new Promise(async (resolve, reject) => {
             try {
-                const res = await fetch('/api/pets', {
-                    method: 'POST',
+                const res = await fetch('api/notes', {
+                   
                     headers: {
-                      Accept: contentType,
-                      'Content-Type': contentType,
-                    }
+                      Accept: 'application/json',
+                      'Content-Type': 'application/json',
+                    },
+                    method: 'POST',
+                    body: JSON.stringify(232)
                   })
-                const response = await axios({
+               /* const response = await axios({
                     method: 'post',
                     url: '/notes',
                     headers: {
@@ -22,7 +24,7 @@ class ServerRequests {
                     },
                     data: newnote
                 })
-                resolve(response);
+                resolve(response);*/
             } catch (error) {
                 reject(error);
             }
