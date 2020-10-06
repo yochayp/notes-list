@@ -6,13 +6,14 @@ class ServerRequests {
     addNote(newnote) {
         return new Promise(async (resolve, reject) => {
             try {
-                const res = await axios('api/notes', {
-                    method: 'POST',
+                const res = await fetch('api/notes', {
+                    method: 'get',
                     headers: {
                       Accept: 'application/json',
                       'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(232)
+                    data: newnote
+                  //  body: JSON.stringify(newnote)
                   })
                /* const response = await axios({
                     method: 'post',

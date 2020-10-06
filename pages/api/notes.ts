@@ -12,6 +12,7 @@ export default async function handler(req, res) {
           console.log('yesssssssssssssssss')
         //const pets = await Pet.find({}) /* find all the data in our database */
         //res.status(200).json({ success: true, data: pets })
+        res.status(200);
       } catch (error) {
         res.status(400).json({ success: false })
       }
@@ -19,6 +20,7 @@ export default async function handler(req, res) {
     case 'POST':
       try {
         console.log('yesssssssssssssssss')
+        res.status(200);
        // const pet = await Pet.create(
          // req.body
         //) /* create a new model in the database */
