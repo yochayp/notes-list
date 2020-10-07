@@ -18,8 +18,8 @@ const ListView = (props) => {
     return useObserver(() => (
         <ListGroup style={{ margin: 20 }} variant="flush">
             {notes.noteslist.map((note, key) =>
-             <Row className="justify-content-md-center">
-                < Card key={key} border="primary" style={{ width: '80%', margin: '3%' }} className='md-center'>
+             <Row key={key} className="justify-content-md-center">
+                < Card key={key} border="primary" style={{ width: '80%', margin: '3%' }}>
 
                     <Card.Header>
                         <Row>
