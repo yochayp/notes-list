@@ -2,7 +2,7 @@ import React from "react";
 import { v4 as uuidv4 } from 'uuid';
 
 import { useState } from 'react'
-import { Alert, FormControl, InputGroup, Button, Form, ListGroup, Row , Col, Navbar, Modal } from 'react-bootstrap'
+import { Alert, FormControl, InputGroup, Button, Form, ListGroup, Row, Col, Navbar, Modal } from 'react-bootstrap'
 import { AiFillPlusCircle } from 'react-icons/ai'
 import useStore from "../stores/useStore";
 import { useObserver } from "mobx-react";
@@ -63,12 +63,11 @@ const NavbarView = () => {
 
         <div>
             <Navbar bg="light" expand="lg" variant="dark">
-                <Row>
-                <Col md={{ span: 3, offset: 5 }} className='md-center' > <h1>Notes List</h1></Col>
-                <Col md='auto' className='ml-auto'>
-                    <Button onClick={() => setShownewtask(true)}>new note</Button>
+                <Col></Col>
+                <Col className='justify-content-center' > <h1 className='row justify-content-md-center'>Notes List</h1></Col>
+                <Col >
+                    <Button  className='mr-auto' onClick={() => setShownewtask(true)}>new note</Button>
                 </Col>
-                </Row>
             </Navbar>
 
             <Modal show={shownewtask} onHide={() => setShownewtask(false)} animation={false} >
