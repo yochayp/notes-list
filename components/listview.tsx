@@ -19,11 +19,11 @@ const ListView = (props) => {
         <ListGroup style={{ margin: 20 }} variant="flush">
             {notes.noteslist.map((note, key) =>
              <Row className="justify-content-md-center">
-                < Card key={key} border="primary" style={{ width: '80%', margin: 6 }} className='md-center'>
+                < Card key={key} border="primary" style={{ width: '80%', margin: '3%' }} className='md-center'>
 
                     <Card.Header>
                         <Row>
-                            <h3 style={{ marginLeft: 10 }}>{note.noteName}</h3>
+                            <h3 style={{ marginLeft: '3%' }}>{note.noteName}</h3>
                             <Col md='auto' className='ml-auto'>
                                 <AiOutlineDelete className="icon" onClick={() => removeNote(note)} />
                             </Col>
