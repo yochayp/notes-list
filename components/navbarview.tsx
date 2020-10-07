@@ -2,7 +2,7 @@ import React from "react";
 import { v4 as uuidv4 } from 'uuid';
 
 import { useState } from 'react'
-import { Alert, FormControl, InputGroup, Button, Form, ListGroup, Row, Col, Navbar, Modal } from 'react-bootstrap'
+import { Alert, FormControl, InputGroup, Button, Form, ListGroup, Col, Navbar, Modal } from 'react-bootstrap'
 import { AiFillPlusCircle } from 'react-icons/ai'
 import useStore from "../stores/useStore";
 import { useObserver } from "mobx-react";
@@ -34,7 +34,6 @@ const NavbarView = () => {
         else
             alert('Item name is empty!')
     }
-    // dateCreated: new Date().toLocaleString(),
 
     const addNote = (e) => {
         e.preventDefault();
@@ -64,7 +63,7 @@ const NavbarView = () => {
 
         <div>
             <Navbar bg="light" expand="lg" variant="dark">
-                <Col md={{ span: 3, offset: 5 }} > <h1>Notes List</h1></Col>
+                <Col md={{ span: 3, offset: 5 }} className='md-center' > <h1>Notes List</h1></Col>
                 <Col md='auto' className='ml-auto'>
                     <Button onClick={() => setShownewtask(true)}>new note</Button>
                 </Col>

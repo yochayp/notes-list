@@ -14,7 +14,7 @@ class ServerRequests {
                 })
                 const { data } = await res.json();
 
-                res.ok ? resolve(data) : reject(error);
+                res.ok ? resolve(data) : reject(Error);
 
             } catch (error) {
                 reject(error);
@@ -33,7 +33,7 @@ class ServerRequests {
                     },
                     body: JSON.stringify({ noteid: noteid })
                 })
-                res.ok ? resolve(res) : reject(error);
+                res.ok ? resolve(res) : reject(Error);
             } catch (error) {
                 reject(error);
             }
@@ -52,7 +52,7 @@ class ServerRequests {
                     },
                     body: JSON.stringify(newNote)
                 })
-                res.ok ? resolve(res) : reject(error);
+                res.ok ? resolve(res) : reject(Error);
             } catch (error) {
                 reject(error);
             }

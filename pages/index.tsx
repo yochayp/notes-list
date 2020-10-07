@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import React from "react";
 import { useLocalStore } from 'mobx-react' // 6.x or mobx-react-lite@1.4.0
-//import { TStore } from '../stores/notesStore'
 import ServerRequests from '../utils/serverRequests'
 import Note from '../models/Note'
 import dbConnect from '../utils/dbConnect'
@@ -10,7 +9,7 @@ import NavbarView from '../components/navbarview'
 import ListView from '../components/listview'
 import { toJS } from 'mobx';
 
- type TStore = ReturnType<typeof useLocalStore>;
+type TStore = ReturnType<typeof useLocalStore>;
 
 export const storeContext = React.createContext<TStore | null>(null)
 
@@ -36,7 +35,7 @@ const Index = ({ notes }) => {
                                     this.noteslist[noteIndex].itemsList[itemIndex].checked = !this.noteslist[noteIndex].itemsList[itemIndex].checked
                                     const newNote = toJS(this.noteslist[noteIndex]);
                                     await ServerRequests.updateNote(newNote)
-                                    .catch(err => alert('Faild in update'))
+                                        .catch(err => alert('Faild in update'))
                                 }
                             })
                         }
@@ -44,7 +43,7 @@ const Index = ({ notes }) => {
                 },
                 async removeNote(selectedNote) {
                     await ServerRequests.deleteNote(selectedNote.id).then(
-                      this.noteslist = this.noteslist.filter(note => note.id !== selectedNote.id)
+                        this.noteslist = this.noteslist.filter(note => note.id !== selectedNote.id)
                     ).catch(
                         err => alert('Faild to delete Note')
                     );
@@ -73,10 +72,10 @@ const Index = ({ notes }) => {
 
 
 export async function getServerSideProps() {
-    let notes;
+
     await dbConnect()
     const result = await Note.find({})
-    notes = JSON.parse(JSON.stringify(result))
+    const notes = JSON.parse(JSON.stringify(result))
     return { props: { notes: notes } }
 }
 export default Index;

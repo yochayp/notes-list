@@ -3,11 +3,10 @@ import { ListGroup, Card, Row, Col, Form } from "react-bootstrap"
 import { AiOutlineDelete } from "react-icons/ai";
 
 import useStore from "../stores/useStore";
-import Note from '../models/Note'
 
 const ListView = (props) => {
-    
-    const  notes  = useStore();
+
+    const notes = useStore();
 
     const toggleChecked = (note, item) => {
         notes.toggleItem(note.id, item.id);
@@ -17,19 +16,20 @@ const ListView = (props) => {
         notes.removeNote(note));
 
     return useObserver(() => (
-        <ListGroup style={{margin:20}} variant="flush">
+        <ListGroup style={{ margin: 20 }} variant="flush">
             {notes.noteslist.map((note, key) =>
-                < Card key={key} border="primary" style={{ width: '50%' ,margin:6}}>
+             <Row className="justify-content-md-center">
+                < Card key={key} border="primary" style={{ width: '80%', margin: 6 }} className='md-center'>
 
                     <Card.Header>
                         <Row>
-                            <h3 style={{marginLeft:10}}>{note.noteName}</h3>
+                            <h3 style={{ marginLeft: 10 }}>{note.noteName}</h3>
                             <Col md='auto' className='ml-auto'>
                                 <AiOutlineDelete className="icon" onClick={() => removeNote(note)} />
                             </Col>
                         </Row>
                     </Card.Header>
-                    <Card.Body style={{paddingLeft:4}}>
+                    <Card.Body style={{ paddingLeft: 4 }}>
                         <ListGroup variant="flush">
 
                             {note.itemsList.map((item, key) =>
@@ -47,9 +47,9 @@ const ListView = (props) => {
                         <Col md='auto' className='ml-auto'>
                             {note.dateCreated} </Col>
                     </Card.Footer>
-                </Card >
+                </Card ></Row>
             )}
-<style jsx>{`
+            <style jsx>{`
        .card {
         margin: 20px;
         padding:40px;
