@@ -23,26 +23,32 @@ const Index = ({ notes }) => {
             source => ({
                 noteslist: notes
                 ,
-                addNote(note) {
-                    ServerRequests.addNote(note);
-                    this.noteslist.push(note);
+                async addNote(note) {
+
+                    await ServerRequests.addNote(note)
+                        .then(res => this.noteslist.push(res))
+                        .catch(err => alert('unable to fetch Note'));
                 },
                 toggleItem(lastnote, lastitem) {
                     this.noteslist.forEach((item, noteIndex) => {
                         if (item.id == lastnote) {
-                            this.noteslist[noteIndex].itemsList.forEach((item, itemIndex) => {
+                            this.noteslist[noteIndex].itemsList.forEach(async (item, itemIndex) => {
                                 if (item.id == lastitem) {
                                     this.noteslist[noteIndex].itemsList[itemIndex].checked = !this.noteslist[noteIndex].itemsList[itemIndex].checked
                                     const newNote = toJS(this.noteslist[noteIndex]);
-                                    ServerRequests.updateNote(newNote);
+                                    await ServerRequests.updateNote(newNote)
+                                    .catch(err => alert('Faild in update'))
                                 }
                             })
                         }
                     })
                 },
-                removeNote(selectedNote) {
-                    this.noteslist = this.noteslist.filter(note => note.id !== selectedNote.id);
-                    ServerRequests.deleteNote(selectedNote.id);
+                async removeNote(selectedNote) {
+                    await ServerRequests.deleteNote(selectedNote.id).then(
+                      this.noteslist = this.noteslist.filter(note => note.id !== selectedNote.id)
+                    ).catch(
+                        err => alert('Faild to delete Note')
+                    );
                 }
             }), { notes }
         )
@@ -70,12 +76,9 @@ const Index = ({ notes }) => {
 export async function getServerSideProps() {
     let notes;
     await dbConnect()
-
-   // const result = await axios.get('http://localhost:3000/notes');//serverRequests.initNotes(); 
-  const result = await Note.find({})
-   notes = JSON.parse(JSON.stringify(result))
-    console.log(notes)
-    return { props: { notes: notes} }
+    const result = await Note.find({})
+    notes = JSON.parse(JSON.stringify(result))
+    return { props: { notes: notes } }
 }
 export default Index;
 

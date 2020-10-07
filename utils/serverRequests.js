@@ -7,24 +7,17 @@ class ServerRequests {
         return new Promise(async (resolve, reject) => {
             try {
                 const res = await fetch('api/notes', {
-                    method: 'get',
-                    headers: {
-                      Accept: 'application/json',
-                      'Content-Type': 'application/json',
-                    },
-                    data: newnote
-                  //  body: JSON.stringify(newnote)
-                  })
-               /* const response = await axios({
                     method: 'post',
-                    url: '/notes',
                     headers: {
-                        'Accept': 'application/json',
+                        Accept: 'application/json',
                         'Content-Type': 'application/json',
                     },
-                    data: newnote
+                    body: JSON.stringify(newnote)
                 })
-                resolve(response);*/
+                const { data } = await res.json();
+
+                res.ok ? resolve(data) : reject(error);
+
             } catch (error) {
                 reject(error);
             }
@@ -33,17 +26,16 @@ class ServerRequests {
 
     deleteNote(noteid) {
         return new Promise(async (resolve, reject) => {
-            console.log('delete')
             try {
-                const response = await axios('/notes', {
+                const res = await fetch('api/notes', {
                     method: 'DELETE',
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    data: {noteid: noteid}
+                    body: JSON.stringify({ noteid: noteid })
                 })
-                resolve(response.data);
+                res.ok ? resolve(res) : reject(error);
             } catch (error) {
                 reject(error);
             }
@@ -53,15 +45,16 @@ class ServerRequests {
     updateNote(newNote) {
         return new Promise(async (resolve, reject) => {
             try {
-                const response = await axios('notes', {
+            console
+                const res = await fetch('api/notes', {
                     method: 'PUT',
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    data: newNote
+                    body: JSON.stringify(newNote)
                 })
-                resolve(response.data);
+                res.ok ? resolve(res) : reject(error);
             } catch (error) {
                 reject(error);
             }
