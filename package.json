@@ -13,9 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.20.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
     "mobx": "^6.0.0",
     "mobx-react": "^7.0.0",
     "mongoose": "^5.10.6",
