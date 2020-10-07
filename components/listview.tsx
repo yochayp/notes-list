@@ -23,7 +23,7 @@ const ListView = (props) => {
 
                     <Card.Header>
                         <Row>
-                            <h3 style={{ marginLeft: '3%' }}>{note.noteName}</h3>
+                            <Col><h3 style={{ marginLeft: '3%' }}>{note.noteName}</h3></Col>
                             <Col md='auto' className='ml-auto'>
                                 <AiOutlineDelete className="icon" onClick={() => removeNote(note)} />
                             </Col>
