@@ -63,10 +63,12 @@ const NavbarView = () => {
 
         <div>
             <Navbar bg="light" expand="lg" variant="dark">
+                <Row>
                 <Col md={{ span: 3, offset: 5 }} className='md-center' > <h1>Notes List</h1></Col>
                 <Col md='auto' className='ml-auto'>
                     <Button onClick={() => setShownewtask(true)}>new note</Button>
                 </Col>
+                </Row>
             </Navbar>
 
             <Modal show={shownewtask} onHide={() => setShownewtask(false)} animation={false} >
