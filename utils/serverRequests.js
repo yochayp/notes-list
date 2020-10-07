@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 
 class ServerRequests {
 
@@ -61,17 +59,7 @@ class ServerRequests {
         });
     }
 
-    initNotes() {
 
-        return new Promise(async (resolve, reject) => {
-            try {
-                const response = await axios.get('http://localhost:3000/notes');
-                resolve(response.data);
-            } catch (error) {
-                reject(error);
-            }
-        })
-    }
 
 
 }

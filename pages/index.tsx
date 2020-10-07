@@ -4,13 +4,11 @@ import { useLocalStore } from 'mobx-react' // 6.x or mobx-react-lite@1.4.0
 import { TStore } from '../stores/notesStore'
 import ServerRequests from '../utils/serverRequests'
 import Note from '../models/Note'
-import axios from 'axios';
 import dbConnect from '../utils/dbConnect'
 
 import NavbarView from '../components/navbarview'
 import ListView from '../components/listview'
 import { toJS } from 'mobx';
-import serverRequests from '../utils/serverRequests';
 
 
 export const storeContext = React.createContext<TStore | null>(null)

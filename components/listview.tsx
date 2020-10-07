@@ -1,8 +1,7 @@
-import { observer, useObserver } from "mobx-react"
+import { useObserver } from "mobx-react"
 import { ListGroup, Card, Row, Col, Form } from "react-bootstrap"
-import { AiOutlineDelete, AiOutlineEdit, AiOutlineEye } from "react-icons/ai";
+import { AiOutlineDelete } from "react-icons/ai";
 
-import serverRequests from '../utils/serverRequests'
 import useStore from "../stores/useStore";
 import Note from '../models/Note'
 
