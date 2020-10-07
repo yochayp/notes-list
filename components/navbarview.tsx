@@ -62,7 +62,7 @@ const NavbarView = () => {
     return useObserver(() => (
 
         <div>
-            <Navbar bg="light" expand="lg" variant="dark">
+            <Navbar bg="light"  variant="dark">
                 <Col></Col>
                 <Col className='justify-content-center' > <h1 className='row justify-content-md-center'>Notes List</h1></Col>
                 <Col >

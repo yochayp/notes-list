@@ -33,6 +33,7 @@ const Index = ({ notes }) => {
                             this.noteslist[noteIndex].itemsList.forEach(async (item, itemIndex) => {
                                 if (item.id == lastitem) {
                                     this.noteslist[noteIndex].itemsList[itemIndex].checked = !this.noteslist[noteIndex].itemsList[itemIndex].checked
+                                    this.noteslist[noteIndex].dateUpdated = new Date().toLocaleString();
                                     const newNote = toJS(this.noteslist[noteIndex]);
                                     await ServerRequests.updateNote(newNote)
                                         .catch(err => alert('Faild in update'))

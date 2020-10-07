@@ -44,8 +44,11 @@ const ListView = (props) => {
                         </ListGroup>
                     </Card.Body>
                     <Card.Footer>
-                        <Col md='auto' className='ml-auto'>
-                            {note.dateCreated} </Col>
+                        <Row>
+                        <Col md='auto' >
+                          <b>Created : </b>  {note.dateCreated} </Col>
+                          <Col md='auto' className='ml-auto'>
+                          <b>Modified : </b>  {note.dateUpdated} </Col></Row>
                     </Card.Footer>
                 </Card ></Row>
             )}
