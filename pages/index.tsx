@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React from "react";
 import { useLocalStore } from 'mobx-react' // 6.x or mobx-react-lite@1.4.0
-import { TStore } from '../stores/notesStore'
+//import { TStore } from '../stores/notesStore'
 import ServerRequests from '../utils/serverRequests'
 import Note from '../models/Note'
 import dbConnect from '../utils/dbConnect'
@@ -10,6 +10,7 @@ import NavbarView from '../components/navbarview'
 import ListView from '../components/listview'
 import { toJS } from 'mobx';
 
+ type TStore = ReturnType<typeof useLocalStore>;
 
 export const storeContext = React.createContext<TStore | null>(null)
 
