@@ -77,7 +77,7 @@ const NavbarView = () => {
                     </Modal.Header>
                     <Modal.Body>
                         <InputGroup >
-                            <FormControl id='add-item' placeholder="enter new item..." value={itemname} onChange={(e) => setItemname(e.target.value)} />
+                            <FormControl  placeholder="enter new item..."  onChange={(e) => setItemname(e.target.value)} />
                             <Button type="submit" onClick={addItem}>
                                 <AiFillPlusCircle />
                             </Button>
