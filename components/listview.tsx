@@ -19,7 +19,7 @@ const ListView = (props) => {
         <ListGroup style={{ margin: 20 }} variant="flush">
             {notes.noteslist.map((note, key) =>
              <Row key={key} className="justify-content-md-center">
-                < Card key={key} border="primary" style={{ width: '500px', margin: '3%' }}>
+                < Card key={key} border="primary" style={{ width: '500px', margin: '7px' }}>
 
                     <Card.Header>
                         <Row>
@@ -52,13 +52,7 @@ const ListView = (props) => {
                     </Card.Footer>
                 </Card ></Row>
             )}
-            <style jsx>{`
-       .card {
-        margin: 20px;
-        padding:10px;
-    }
-       
-     `}</style>
+     
         </ListGroup >))
 
 }
